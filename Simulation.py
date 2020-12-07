@@ -121,7 +121,7 @@ def calculateAngularMomentum(bodies):   # check if angular momentum changes with
 
 
 days = int(input("Enter the number of days (Starting date: 1st of January 2020):   "))
-deltaT = 180
+deltaT = 3600
 secinday = 86400
 Data = []
 
@@ -134,25 +134,17 @@ while y not in range(1,4):   # limit the range of input (1-3 allowed only)
 
 time = 1
 
+
 for i in range(0, int(days*secinday), deltaT):
-
-    if y == 1:
-        for j in range(0, len(bodies)):
+    for j in range(0, len(bodies)):
             bodies[j].updateGravitationalAcceleration(bodies)
-        for x in range(0, len(bodies)):
+    for x in range(0, len(bodies)):
+        if y == 1:
             bodies[x].eulerUpdatePositionVelocity(deltaT)  # Updates position and velocity of a planet using Euler method
-    
-    elif y == 2:
-        for j in range(0, len(bodies)):
-            bodies[j].updateGravitationalAcceleration(bodies)
-        for x in range(0, len(bodies)):
-            bodies[x].eulerCromerUpdatePositionVelocity(deltaT)  # Updates position and velocity of a planet using Euler-Cromer method
-
-    elif y == 3:
-        for x in range(0, len(bodies)):
-            bodies[x].eulerRichardsonUpdatePositionVelocity(deltaT)  # Updates position and velocity of a planet using Euler-Richardson method
-        for j in range(0, len(bodies)):
-            bodies[j].updateGravitationalAcceleration(bodies)
+        elif y == 2:
+            bodies[x].eulerCromerUpdatePositionVelocity(deltaT)
+        elif y == 3:
+            bodies[x].verletUpdatePositionVelocity(deltaT)
 
 
 

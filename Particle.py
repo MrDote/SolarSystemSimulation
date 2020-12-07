@@ -1,6 +1,10 @@
 import numpy as np
+import copy
+
+
 
 class Particle:
+    import copy
 
     def __init__(self, position, velocity, acceleration, name, mass):
         self.position = np.array(position, dtype=float)
@@ -23,15 +27,16 @@ class Particle:
         self.velocity = self.velocity + self.acceleration * deltaT
         self.position = self.position + self.velocity * deltaT
     
-
-    def eulerRichardsonUpdatePositionVelocity(self, deltaT):
-        self.eulerUpdatePositionVelocity()
-
+    
+    def verletUpdatePositionVelocity(self, deltaT):
+        self.position = self.position + self.velocity * deltaT + 1/2 * self.accelerationInitial * (deltaT)**2
+        self.velocity = self.velocity + 1/2 * (self.accelerationInitial + self.acceleration) * deltaT
 
 
 
 
     def updateGravitationalAcceleration(self, bodies):
+        self.accelerationInitial = copy.deepcopy(self.acceleration)
         self.acceleration = np.array([0.0, 0.0, 0.0])
         for i in range(0, len(bodies)):
 
