@@ -1,0 +1,19 @@
+# Data for report
+
+Precise ===> deltaT = 120 sec
+NP ===> deltaT = 7200 sec
+
+
+AMD = angular momentum difference
+
+
+1 year:
+
+Euler AMD (Precise):    
+Euler ADM (NP):     
+
+
+
+10 year Euler angular momentum difference (Precise):    
+
+10 year Euler angular momentum difference (NP):    0.024022939562543727%
