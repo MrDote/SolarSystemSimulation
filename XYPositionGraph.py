@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 
 
 if path.exists("MultipleBodies.npy"):              # check if the file with data has been created
-    print("The file MultipleBodies.npy has been created.")
+    print("MultipleBodies.npy has been created.")
 
 
 DataIn = np.load("MultipleBodies.npy", allow_pickle=True)           # load the file with data

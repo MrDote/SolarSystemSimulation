@@ -122,7 +122,7 @@ while not days in range(1,36501):        # limit the type of input to integer an
     days = int(input("""Input has to be an integer between "1" and "36501"! Try again! Enter the number of days (Starting date: 1st of January 2020):      """))
 
 
-secinday = 86400            # number of secands in a day
+secinday = 86400            # number of seconds in a day
 deltaT = 720                   # time step in seconds
 Data = []
 
